@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "夜读",
+    "version": "1.0",
+    "description": "使用夜间模式浏览网页",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "夜读",
+        "default_popup": "popup.html"
+    },
+    "options_page": "setting.html",
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "persistent": true,
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["js/content.js"],
+            "all_frames": true
+        }
+    ],
+    "permissions": ["storage"]
+}
